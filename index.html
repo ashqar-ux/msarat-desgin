@@ -1,10 +1,36 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl" id="html-root">
+<html lang="en" dir="ltr" id="html-root">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>مسارات الصدارة للمقاولات — Excellence in Construction</title>
-<meta name="description" content="شركة مسارات الصدارة للمقاولات — خبرة في البناء والتشييد بالرياض، المملكة العربية السعودية. Masarat Al-Sadara Contracting Company, Riyadh, KSA.">
+<title>Masarat Al-Sadara Contracting — Excellence in Construction | Riyadh, KSA</title>
+<meta name="description" content="Masarat Al-Sadara Contracting Company — Expert construction & building services in Riyadh, Saudi Arabia. Member No. 240524053. Quality construction since 2022.">
+<meta name="keywords" content="مقاولات الرياض, contracting company Riyadh, شركة مقاولات السعودية, building construction KSA, مسارات الصدارة للمقاولات">
+<meta property="og:title" content="Masarat Al-Sadara Contracting — Riyadh, KSA">
+<meta property="og:description" content="Expert construction & building services in Saudi Arabia. Quality, reliability, excellence.">
+<meta property="og:url" content="https://masaratalasadara.com">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://masaratalasadara.com/">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%233C3C36'/%3E%3Cpath d='M15 75 L50 25 L85 75 Z' fill='none' stroke='%23B8952A' stroke-width='6'/%3E%3Crect x='38' y='55' width='24' height='20' fill='%23B8952A'/%3E%3C/svg%3E">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "مسارات الصدارة للمقاولات",
+  "alternateName": "Masarat Al-Sadara Contracting",
+  "email": "Info@MasaratAlsadara.Com",
+  "foundingDate": "2022",
+  "memberOf": { "@type": "Organization", "identifier": "240524053" },
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "الرياض",
+    "addressRegion": "Riyadh",
+    "addressCountry": "SA"
+  },
+  "areaServed": "SA",
+  "serviceType": ["General Contracting", "Construction", "Infrastructure"]
+}
+</script>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Tajawal:wght@300;400;500;700&family=Montserrat:wght@200;300;400;600&display=swap" rel="stylesheet">
 
 <style>
@@ -116,8 +142,15 @@
   .ms-tl-project:nth-child(5) { transition-delay: 0.2s; }
 
   @media (max-width: 900px) {
-    .ms-map-wrap { flex-direction: column; }
-    .ms-map-canvas { width: 100%; }
+    .ms-map-wrap { flex-direction: column; padding: 16px; }
+    .ms-map-canvas { width: 100%; height: 260px; }
+    .ms-map-legend { width: 100%; flex-direction: row; flex-wrap: wrap; gap: 10px; }
+    .ms-tl-wrap { padding: 20px 16px; }
+    .ms-tl-year-lbl { font-size: 9px; }
+    .ms-tl-sublbl { font-size: 9px; }
+    .ms-tl-project { font-size: 9px; padding: 4px 6px; }
+    .ms-sec-header { padding: 12px 16px; }
+    .ms-sec-title { font-size: 13px; }
   }
 </style>
 <script type="application/ld+json">
@@ -242,9 +275,10 @@
 
   .lang-btn {
     background: transparent; border: 1px solid var(--border);
-    color: var(--gold); font-family: inherit; font-size: 11px;
-    font-weight: 600; letter-spacing: 2px; padding: 6px 14px;
-    cursor: pointer; text-transform: uppercase; transition: all 0.2s;
+    color: var(--gold); font-family: inherit; font-size: 18px;
+    padding: 4px 10px; cursor: pointer; transition: all 0.2s;
+    display: flex; align-items: center; gap: 6px;
+    line-height: 1;
   }
   .lang-btn:hover { background: var(--gold); color: var(--white); border-color: var(--gold); }
 
@@ -843,7 +877,7 @@
   </ul>
 
   <div style="display:flex;align-items:center;gap:12px;flex-shrink:0;">
-    <button class="lang-btn" onclick="toggleLang()" id="lang-toggle">EN</button>
+    <button class="lang-btn" onclick="toggleLang()" id="lang-toggle">🇸🇦 عربي</button>
     <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
@@ -865,9 +899,8 @@
   <video id="hero-video" autoplay muted loop playsinline
     oncanplay="this.classList.add('loaded')"
     poster="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1400&q=80&auto=format&fit=crop">
+    <source src="masarat-hero-bg.mp4" type="video/mp4">
     <source src="https://videos.pexels.com/video-files/2098852/2098852-uhd_2560_1440_30fps.mp4" type="video/mp4">
-    <source src="https://videos.pexels.com/video-files/3209828/3209828-hd_1920_1080_30fps.mp4" type="video/mp4">
-    <source src="https://videos.pexels.com/video-files/1409899/1409899-hd_1920_1080_30fps.mp4" type="video/mp4">
   </video>
   <div class="hero-overlay"></div>
   <div class="hero-gold-line"></div>
@@ -929,19 +962,19 @@
     <div class="about-numbers reveal">
       <div class="about-num-card">
         <div class="num" data-num-ar="٢٠٢٢" data-num-en="2022">2022</div>
-        <div class="lbl" data-i18n="num1">سنة التأسيس</div>
+        <div class="lbl" data-i18n="num1">Year Founded</div>
       </div>
       <div class="about-num-card">
-        <div class="num" data-num-ar="٤+" data-num-en="+4">+4</div>
-        <div class="lbl" data-i18n="num2">سنوات خبرة</div>
+        <div class="num" data-num-ar="١٠+" data-num-en="10+">10+</div>
+        <div class="lbl" data-i18n="num2">Awards & Recognition</div>
       </div>
       <div class="about-num-card">
-        <div class="num">KSA</div>
-        <div class="lbl" data-i18n="num3">نطاق العمل</div>
+        <div class="num" id="ksa-num">KSA</div>
+        <div class="lbl" data-i18n="num3">Service Area</div>
       </div>
       <div class="about-num-card">
         <div class="num" data-num-ar="٥+" data-num-en="+5">+5</div>
-        <div class="lbl" data-i18n="num4">مشاريع سنوياً</div>
+        <div class="lbl" data-i18n="num4">Projects Per Year</div>
       </div>
     </div>
   </div>
@@ -951,7 +984,16 @@
 <div class="glow-strip"></div>
 
 <!-- TIMELINE — above services -->
-<section id="timeline-section" style="padding:0; background:#3C3C36;">
+<section id="timeline-section" style="padding:0; background:#3C3C36; position:relative; overflow:hidden;">
+  <!-- Shared video behind timeline + services -->
+  <video id="services-video" autoplay muted loop playsinline
+    style="position:absolute;inset:0;width:100%;height:200%;object-fit:cover;object-position:center top;z-index:0;opacity:0;transition:opacity 1.2s ease;"
+    oncanplay="this.style.opacity='0.1'"
+    poster="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1200&q=80&auto=format&fit=crop">
+    <source src="https://videos.pexels.com/video-files/3571264/3571264-hd_1920_1080_30fps.mp4" type="video/mp4">
+    <source src="https://videos.pexels.com/video-files/2098852/2098852-uhd_2560_1440_30fps.mp4" type="video/mp4">
+  </video>
+  <div style="position:relative;z-index:1;">
   <div class="ms-sec-header">
     <div class="ms-sec-title" data-i18n="tl_title">رحلتنا منذ التأسيس</div>
     <div class="ms-sec-sub">CLICK YEAR TO EXPLORE</div>
@@ -962,20 +1004,11 @@
       <div class="ms-tl-prog" id="ms-tl-prog"></div>
     </div>
   </div>
+  </div>
 </section>
 
-<div style="height:40px; background:#3C3C36;"></div>
-
 <!-- SERVICES -->
-<section id="services" style="position:relative; overflow:hidden;">
-  <!-- Services background video -->
-  <video id="services-video" autoplay muted loop playsinline
-    style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0;opacity:0;transition:opacity 1.2s ease;"
-    oncanplay="this.style.opacity='0.18'"
-    poster="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1200&q=80&auto=format&fit=crop">
-    <source src="https://videos.pexels.com/video-files/3571264/3571264-hd_1920_1080_30fps.mp4" type="video/mp4">
-    <source src="https://videos.pexels.com/video-files/2098852/2098852-uhd_2560_1440_30fps.mp4" type="video/mp4">
-  </video>
+<section id="services" style="position:relative; overflow:hidden; background:#3C3C36;">
   <div style="position:relative;z-index:1;">
   <div class="section-wrap">
     <div class="reveal" style="text-align:center;">
@@ -1153,7 +1186,7 @@
       </div>
 
       <div class="why-image-wrap reveal">
-        <img class="why-image" src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=500&q=80&auto=format&fit=crop" alt="مسارات الصدارة للمقاولات">
+        <img class="why-image" src="masarat-why-image.jpg" alt="Masarat Al-Sadara Contracting — Construction Excellence">
         <div class="why-image-accent">
           <div class="why-accent-num">+4</div>
           <div class="why-accent-label" data-i18n="accent_label">سنوات خبرة</div>
@@ -1291,7 +1324,9 @@
 
   <div class="footer-bottom">
     <div class="footer-copy" data-i18n="footer_copy">© 2026 مسارات الصدارة للمقاولات. جميع الحقوق محفوظة.</div>
-    <div class="footer-copy" style="opacity:0.2;">Powered by Divoraix Studio</div>
+    <div class="footer-copy" style="opacity:0.25; font-size:9px;">
+      Designed & Developed by <a href="https://divoraix.com" target="_blank" style="color:rgba(184,149,42,0.5); text-decoration:none; letter-spacing:1px;">divoraix.com</a>
+    </div>
   </div>
 </footer>
 
@@ -1315,7 +1350,7 @@ const t = {
     about_title:"شركة مقاولات تبني ثقتها بكل مشروع",
     about_desc:"تأسست شركة مسارات الصدارة للمقاولات عام 2022 في الرياض، وتخصصت في تنفيذ مشاريع البناء والتشييد بمعايير عالية الجودة. نجمع بين الكفاءة التقنية والالتزام بالمواعيد لتقديم نتائج تفوق توقعات عملائنا.",
     about_cta:"تعرف علينا أكثر",
-    num1:"سنة التأسيس", num2:"سنوات خبرة", num3:"نطاق العمل", num4:"مشاريع سنوياً",
+    num1:"سنة التأسيس", num2:"مكافآت وتكريمات", num3:"السعودية", num4:"مشاريع سنوياً",
     services_eyebrow:"خدماتنا", services_title:"ما نقدمه من خدمات",
     services_desc:"نقدم مجموعة متكاملة من خدمات المقاولات والبناء لتلبية احتياجات مشاريعكم بأعلى معايير الجودة.",
     s1_name:"المقاولات العامة", s1_desc:"تنفيذ مشاريع البناء والتشييد من الألف إلى الياء، مع الإشراف الكامل على جميع مراحل التنفيذ بمعايير عالية الجودة.",
@@ -1350,7 +1385,7 @@ const t = {
     footer_desc:"شركة مقاولات متخصصة في تنفيذ المشاريع الإنشائية والتشييد بمعايير عالمية في المملكة العربية السعودية.",
     footer_nav_title:"روابط سريعة", footer_contact_title:"معلومات التواصل",
     footer_copy:"© 2026 مسارات الصدارة للمقاولات. جميع الحقوق محفوظة.",
-    lang_toggle:"EN", map_title:"خريطة مشاريعنا في الرياض", map_legend_title:"كثافة المشاريع", map_l1:"5+ مشاريع", map_l2:"3-4 مشاريع", map_l3:"1-2 مشاريع", map_total_label:"إجمالي المشاريع", map_districts:"في 25 منطقة", counter_title:"أرقامنا تتحدث", tl_title:"رحلتنا منذ التأسيس"
+    lang_toggle:"🇸🇦 عربي", map_title:"خريطة مشاريعنا في الرياض", map_legend_title:"كثافة المشاريع", map_l1:"5+ مشاريع", map_l2:"3-4 مشاريع", map_l3:"1-2 مشاريع", map_total_label:"إجمالي المشاريع", map_districts:"في 25 منطقة", counter_title:"أرقامنا تتحدث", tl_title:"رحلتنا منذ التأسيس"
   },
   en: {
     logo_ar:"Masarat Al-Sadara",
@@ -1364,7 +1399,7 @@ const t = {
     about_title:"A Contracting Company That Builds Trust With Every Project",
     about_desc:"Masarat Al-Sadara Contracting was founded in 2022 in Riyadh, specializing in construction and building projects to high quality standards. We combine technical excellence with on-time delivery to provide results that exceed our clients' expectations.",
     about_cta:"Learn More About Us",
-    num1:"Year Founded", num2:"Years of Experience", num3:"Service Area", num4:"Projects Per Year",
+    num1:"Year Founded", num2:"Awards & Recognition", num3:"KSA", num4:"Projects Per Year",
     services_eyebrow:"Our Services", services_title:"What We Offer",
     services_desc:"We provide a comprehensive range of contracting and construction services to meet your project needs with the highest quality standards.",
     s1_name:"General Contracting", s1_desc:"Full execution of construction projects from start to finish, with complete supervision of all implementation phases to the highest quality standards.",
@@ -1399,11 +1434,11 @@ const t = {
     footer_desc:"A contracting company specializing in construction projects to international standards in the Kingdom of Saudi Arabia.",
     footer_nav_title:"Quick Links", footer_contact_title:"Contact Information",
     footer_copy:"© 2026 Masarat Al-Sadara Contracting. All rights reserved.",
-    lang_toggle:"عربي", map_title:"Our Projects in Riyadh", map_legend_title:"Project Density", map_l1:"5+ projects", map_l2:"3-4 projects", map_l3:"1-2 projects", map_total_label:"Total Projects", map_districts:"across 25 districts", counter_title:"Our Numbers", tl_title:"Our Journey Since Founding"
+    lang_toggle:"🇬🇧 English", map_title:"Our Projects in Riyadh", map_legend_title:"Project Density", map_l1:"5+ projects", map_l2:"3-4 projects", map_l3:"1-2 projects", map_total_label:"Total Projects", map_districts:"across 25 districts", counter_title:"Our Numbers", tl_title:"Our Journey Since Founding"
   }
 };
 
-let lang = 'ar';
+let lang = 'en';
 
 function applyLang(l) {
   const d = t[l];
@@ -1427,6 +1462,10 @@ function applyLang(l) {
   document.querySelectorAll('[data-num-ar]').forEach(el => {
     el.textContent = l === 'ar' ? el.getAttribute('data-num-ar') : el.getAttribute('data-num-en');
   });
+
+  // KSA translation
+  const ksaEl = document.getElementById('ksa-num');
+  if (ksaEl) ksaEl.textContent = l === 'ar' ? 'السعودية' : 'KSA';
 
   lang = l;
 }
@@ -1454,7 +1493,7 @@ function sendToWhatsApp() {
 }
 
 // Apply Arabic on load (default)
-applyLang('ar');
+applyLang('en');
 
 // Nav scroll effect — transparent → solid
 window.addEventListener('scroll', () => {
