@@ -31,7 +31,7 @@
   "serviceType": ["General Contracting", "Construction", "Infrastructure"]
 }
 </script>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Tajawal:wght@300;400;500;700&family=Montserrat:wght@200;300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Cairo:wght@300;400;600;700;800&family=Montserrat:wght@200;300;400;600&display=swap" rel="stylesheet">
 
 <style>
   /* ── GLOW STRIP ── */
@@ -108,18 +108,18 @@
     display: flex; align-items: center; justify-content: space-between;
     border-bottom: 2px solid var(--gold);
   }
-  .ms-sec-title { color: var(--gold2); font-size: 15px; font-weight: 700; font-family: 'Tajawal', sans-serif; }
+  .ms-sec-title { color: var(--gold2); font-size: 15px; font-weight: 700; font-family: 'Cairo', sans-serif; }
   .ms-sec-sub { color: rgba(255,255,255,0.3); font-size: 9px; font-family: 'Montserrat', sans-serif; letter-spacing: 2px; }
 
   .ms-map-wrap { padding: 20px 30px; display: flex; gap: 20px; align-items: flex-start; }
-  .ms-map-canvas { flex: 1; position: relative; height: 340px; background: #3C3C36; border: 1px solid rgba(184,149,42,0.12); overflow: hidden; cursor: default; }
+  .ms-map-canvas { flex: 1; position: relative; height: 340px; background: #3A3A34; border: 1px solid rgba(184,149,42,0.12); overflow: hidden; cursor: default; min-width: 0; }
   .ms-district-dot { position: absolute; border-radius: 50%; transform: translate(-50%,-50%); transition: all 0.25s; cursor: pointer; }
   .ms-district-dot:hover { transform: translate(-50%,-50%) scale(1.6); z-index: 10; }
-  .ms-district-label { position: absolute; transform: translateX(-50%); font-size: 9px; font-family: 'Tajawal', sans-serif; color: rgba(255,255,255,0.45); white-space: nowrap; pointer-events: none; }
-  .ms-tooltip { position: absolute; background: rgba(26,26,24,0.98); border: 1px solid var(--gold); padding: 10px 14px; z-index: 20; pointer-events: none; min-width: 150px; opacity: 0; transition: opacity 0.2s; }
+  .ms-district-label { position: absolute; transform: translateX(-50%); font-size: 9px; font-family: 'Cairo', sans-serif; color: rgba(255,255,255,0.45); white-space: nowrap; pointer-events: none; }
+  .ms-tooltip { position: absolute; background: rgba(26,26,24,0.98); border: 1px solid var(--gold); padding: 8px 12px; z-index: 20; pointer-events: none; min-width: 120px; max-width: 160px; opacity: 0; transition: opacity 0.2s; }
   .ms-tooltip.show { opacity: 1; }
-  .ms-map-legend { min-width: 130px; display: flex; flex-direction: column; gap: 8px; }
-  .ms-leg-item { display: flex; align-items: center; gap: 8px; font-size: 11px; color: rgba(255,255,255,0.55); font-family: 'Tajawal', sans-serif; }
+  .ms-map-legend { min-width: 130px; display: flex; flex-direction: column; gap: 8px; flex-shrink: 0; }
+  .ms-leg-item { display: flex; align-items: center; gap: 8px; font-size: 11px; color: rgba(255,255,255,0.55); font-family: 'Cairo', sans-serif; }
   .ms-leg-dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
 
   .ms-tl-wrap { padding: 28px 30px; overflow-x: auto; }
@@ -131,26 +131,32 @@
   .ms-tl-year.active .ms-tl-dot, .ms-tl-year:hover .ms-tl-dot { background: var(--gold); transform: scale(1.4); }
   .ms-tl-year-lbl { font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 600; color: rgba(184,149,42,0.45); margin-bottom: 4px; transition: color 0.25s; }
   .ms-tl-year.active .ms-tl-year-lbl, .ms-tl-year:hover .ms-tl-year-lbl { color: var(--gold2); }
-  .ms-tl-sublbl { font-family: 'Tajawal', sans-serif; font-size: 10px; color: rgba(255,255,255,0.3); margin-bottom: 8px; transition: color 0.25s; }
+  .ms-tl-sublbl { font-family: 'Cairo', sans-serif; font-size: 10px; color: rgba(255,255,255,0.3); margin-bottom: 8px; transition: color 0.25s; }
   .ms-tl-year.active .ms-tl-sublbl, .ms-tl-year:hover .ms-tl-sublbl { color: rgba(255,255,255,0.6); }
   .ms-tl-projects { display: flex; flex-direction: column; gap: 4px; width: 100%; }
-  .ms-tl-project { background: rgba(184,149,42,0.06); border-right: 2px solid rgba(184,149,42,0.2); padding: 5px 8px; font-size: 10px; font-family: 'Tajawal', sans-serif; color: rgba(255,255,255,0.3); line-height: 1.4; opacity: 0; transform: translateY(5px); transition: all 0.25s ease; }
+  .ms-tl-project { background: rgba(184,149,42,0.06); border-right: 2px solid rgba(184,149,42,0.2); padding: 5px 8px; font-size: 10px; font-family: 'Cairo', sans-serif; color: rgba(255,255,255,0.3); line-height: 1.4; opacity: 0; transform: translateY(5px); transition: all 0.25s ease; }
   .ms-tl-year.active .ms-tl-project, .ms-tl-year:hover .ms-tl-project { background: rgba(184,149,42,0.12); border-right-color: var(--gold); color: rgba(255,255,255,0.8); opacity: 1; transform: translateY(0); }
   .ms-tl-project:nth-child(2) { transition-delay: 0.05s; }
   .ms-tl-project:nth-child(3) { transition-delay: 0.1s; }
   .ms-tl-project:nth-child(4) { transition-delay: 0.15s; }
   .ms-tl-project:nth-child(5) { transition-delay: 0.2s; }
 
-  @media (max-width: 900px) {
-    .ms-map-wrap { flex-direction: column; padding: 16px; }
-    .ms-map-canvas { width: 100%; height: 260px; }
-    .ms-map-legend { width: 100%; flex-direction: row; flex-wrap: wrap; gap: 10px; }
-    .ms-tl-wrap { padding: 20px 16px; }
+  @media (max-width: 768px) {
+    #riyadh-map .ms-sec-header { flex-direction: column; align-items: flex-start; gap: 4px; }
+    .ms-map-wrap { flex-direction: column !important; padding: 12px !important; gap: 12px; }
+    .ms-map-canvas { width: 100% !important; height: 220px !important; flex: none !important; }
+    .ms-district-label { display: none !important; }
+    .ms-map-legend { min-width: 0 !important; width: 100%; flex-direction: row; flex-wrap: wrap; gap: 6px 14px; padding-top: 8px; }
+    .ms-map-legend > div[style] { width: 100%; order: -1; }
+    .ms-leg-item { font-size: 12px; }
+    .ms-tl-wrap { padding: 14px 10px; -webkit-overflow-scrolling: touch; }
+    .ms-tl-track { min-width: 420px; }
     .ms-tl-year-lbl { font-size: 9px; }
-    .ms-tl-sublbl { font-size: 9px; }
-    .ms-tl-project { font-size: 9px; padding: 4px 6px; }
-    .ms-sec-header { padding: 12px 16px; }
-    .ms-sec-title { font-size: 13px; }
+    .ms-tl-sublbl { font-size: 8px; }
+    .ms-tl-project { font-size: 8px; padding: 3px 5px; }
+    .ms-sec-header { padding: 10px 14px; }
+    .ms-sec-title { font-size: 12px; }
+    .ms-sec-sub { font-size: 7px; letter-spacing: 1px; }
   }
 </style>
 <script type="application/ld+json">
@@ -190,7 +196,7 @@
   body {
     background: var(--white);
     color: var(--dark);
-    font-family: 'Tajawal', sans-serif;
+    font-family: 'Cairo', sans-serif;
     overflow-x: hidden;
   }
 
@@ -243,7 +249,7 @@
   .logo-text { display: flex; flex-direction: column; gap: 1px; }
 
   .logo-ar {
-    font-family: 'Tajawal', sans-serif;
+    font-family: 'Cairo', sans-serif;
     font-size: 14px; font-weight: 700;
     color: var(--dark); line-height: 1; letter-spacing: 0;
   }
@@ -384,7 +390,7 @@
   }
 
   .hero-title {
-    font-family: 'Tajawal', sans-serif;
+    font-family: 'Cairo', sans-serif;
     font-size: clamp(36px, 5.5vw, 76px);
     font-weight: 700; line-height: 1.15;
     color: var(--white); margin-bottom: 20px;
@@ -463,7 +469,7 @@
   }
 
   .section-title {
-    font-family: 'Tajawal', sans-serif;
+    font-family: 'Cairo', sans-serif;
     font-size: clamp(28px, 3.5vw, 48px);
     font-weight: 700; color: var(--dark); line-height: 1.2;
   }
@@ -494,7 +500,7 @@
 
   .about-strip-text { display: flex; flex-direction: column; gap: 24px; }
   .about-strip-title {
-    font-family: 'Tajawal', sans-serif;
+    font-family: 'Cairo', sans-serif;
     font-size: clamp(26px, 3vw, 42px); font-weight: 700;
     color: var(--white); line-height: 1.25;
   }
@@ -559,7 +565,7 @@
   .service-icon svg { width: 28px; height: 28px; fill: none; stroke: var(--gold); stroke-width: 1.5; }
 
   .service-name {
-    font-family: 'Tajawal', sans-serif;
+    font-family: 'Cairo', sans-serif;
     font-size: 18px; font-weight: 700;
     color: var(--dark); margin-bottom: 12px;
   }
@@ -604,7 +610,7 @@
   }
 
   .project-name {
-    font-family: 'Tajawal', sans-serif;
+    font-family: 'Cairo', sans-serif;
     font-size: 16px; font-weight: 700; color: var(--white); line-height: 1.3;
   }
   html[lang="en"] .project-name { font-family: 'DM Serif Display', serif; font-weight: 400; }
@@ -696,7 +702,7 @@
   .cta-inner { position: relative; z-index: 1; max-width: 700px; margin: 0 auto; }
 
   .cta-title {
-    font-family: 'Tajawal', sans-serif;
+    font-family: 'Cairo', sans-serif;
     font-size: clamp(28px, 4vw, 52px); font-weight: 700;
     color: var(--white); line-height: 1.2; margin-bottom: 20px;
   }
@@ -766,7 +772,7 @@
   .footer-logo-wrap { display: flex; align-items: center; gap: 12px; }
   .footer-logo-icon { width: 38px; height: 38px; background: var(--gold); display: flex; align-items: center; justify-content: center; }
   .footer-logo-icon svg { width: 22px; height: 22px; fill: var(--white); }
-  .footer-logo-ar { font-family: 'Tajawal', sans-serif; font-size: 15px; font-weight: 700; color: var(--white); }
+  .footer-logo-ar { font-family: 'Cairo', sans-serif; font-size: 15px; font-weight: 700; color: var(--white); }
   .footer-logo-en { font-size: 8px; color: var(--gold); letter-spacing: 2px; text-transform: uppercase; font-family: 'Montserrat', sans-serif; }
   .footer-desc { font-size: 13px; font-weight: 300; color: rgba(255,255,255,0.5); line-height: 1.8; }
 
@@ -807,9 +813,18 @@
   html[dir="rtl"] nav .nav-links { flex-direction: row-reverse; }
   html[dir="rtl"] .mobile-menu { direction: rtl; }
   html[dir="rtl"] footer { direction: rtl; }
-  html[dir="rtl"] .contact-grid { direction: rtl; }
-  html[dir="rtl"] .why-item { flex-direction: row-reverse; }
+  html[dir="rtl"] #contact { direction: rtl; }
+  html[dir="rtl"] .contact-grid { direction: rtl; text-align: right; }
+  html[dir="rtl"] .contact-info { align-items: flex-end; }
   html[dir="rtl"] .contact-item { flex-direction: row-reverse; }
+  html[dir="rtl"] .contact-item-label,
+  html[dir="rtl"] .contact-item-val { text-align: right; }
+  html[dir="rtl"] .contact-form { direction: rtl; }
+  html[dir="rtl"] .form-field label { text-align: right; }
+  html[dir="rtl"] .form-field input,
+  html[dir="rtl"] .form-field textarea,
+  html[dir="rtl"] .form-field select { text-align: right; direction: rtl; }
+  html[dir="rtl"] .why-item { flex-direction: row-reverse; }
   html[dir="rtl"] .about-strip-inner { direction: rtl; }
   html[dir="rtl"] .hero-inner { text-align: right; }
   html[dir="rtl"] .hero-actions { flex-direction: row-reverse; justify-content: flex-end; }
@@ -869,10 +884,10 @@
   </a>
 
   <ul class="nav-links">
-    <li><a href="#about-strip" data-i18n="nav_about">من نحن</a></li>
     <li><a href="#services" data-i18n="nav_services">خدماتنا</a></li>
     <li><a href="#projects" data-i18n="nav_projects">مشاريعنا</a></li>
     <li><a href="#why" data-i18n="nav_why">لماذا نحن</a></li>
+    <li><a href="#about-strip" data-i18n="nav_about">من نحن</a></li>
     <li><a href="#contact" class="nav-cta" data-i18n="nav_cta">تواصل معنا</a></li>
   </ul>
 
@@ -886,10 +901,10 @@
 
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobile-menu">
-  <a href="#about-strip" onclick="closeMenu()" data-i18n="nav_about">من نحن</a>
   <a href="#services"    onclick="closeMenu()" data-i18n="nav_services">خدماتنا</a>
   <a href="#projects"    onclick="closeMenu()" data-i18n="nav_projects">مشاريعنا</a>
   <a href="#why"         onclick="closeMenu()" data-i18n="nav_why">لماذا نحن</a>
+  <a href="#about-strip" onclick="closeMenu()" data-i18n="nav_about">من نحن</a>
   <a href="#contact"     onclick="closeMenu()" class="mob-cta" data-i18n="nav_cta">تواصل معنا</a>
   <button class="mobile-lang-btn" onclick="toggleLang()">EN / عربي</button>
 </div>
@@ -969,7 +984,7 @@
         <div class="lbl" data-i18n="num2">Awards & Recognition</div>
       </div>
       <div class="about-num-card">
-        <div class="num" id="ksa-num">KSA</div>
+        <div class="num" id="ksa-num" style="font-size:20px; line-height:1.3;">KSA</div>
         <div class="lbl" data-i18n="num3">Service Area</div>
       </div>
       <div class="about-num-card">
@@ -1131,12 +1146,12 @@
       </div>
     </div>
     <div class="ms-map-legend">
-      <div style="color:var(--gold2); font-size:12px; font-weight:700; font-family:'Tajawal',sans-serif; margin-bottom:6px;" data-i18n="map_legend_title">كثافة المشاريع</div>
+      <div style="color:var(--gold2); font-size:12px; font-weight:700; font-family:'Cairo',sans-serif; margin-bottom:6px;" data-i18n="map_legend_title">كثافة المشاريع</div>
       <div class="ms-leg-item"><div class="ms-leg-dot" style="background:#D4AF50;"></div><span data-i18n="map_l1">5+ مشاريع</span></div>
       <div class="ms-leg-item"><div class="ms-leg-dot" style="background:#B8952A;"></div><span data-i18n="map_l2">3-4 مشاريع</span></div>
       <div class="ms-leg-item"><div class="ms-leg-dot" style="background:rgba(184,149,42,0.4);"></div><span data-i18n="map_l3">1-2 مشاريع</span></div>
       <div style="margin-top:16px; padding-top:12px; border-top:1px solid rgba(184,149,42,0.12);">
-        <div style="color:var(--gold2); font-size:11px; font-weight:700; font-family:'Tajawal',sans-serif;" data-i18n="map_total_label">إجمالي المشاريع</div>
+        <div style="color:var(--gold2); font-size:11px; font-weight:700; font-family:'Cairo',sans-serif;" data-i18n="map_total_label">إجمالي المشاريع</div>
         <div style="color:var(--gold); font-size:28px; font-family:'DM Serif Display',serif;">25</div>
         <div style="color:rgba(255,255,255,0.3); font-size:10px; font-family:'Montserrat',sans-serif;" data-i18n="map_districts">في 25 منطقة</div>
       </div>
@@ -1303,10 +1318,10 @@
     <div>
       <div class="footer-col-title" data-i18n="footer_nav_title">روابط سريعة</div>
       <ul class="footer-links">
-        <li><a href="#about-strip" data-i18n="nav_about">من نحن</a></li>
         <li><a href="#services"    data-i18n="nav_services">خدماتنا</a></li>
         <li><a href="#projects"    data-i18n="nav_projects">مشاريعنا</a></li>
         <li><a href="#why"         data-i18n="nav_why">لماذا نحن</a></li>
+        <li><a href="#about-strip" data-i18n="nav_about">من نحن</a></li>
         <li><a href="#contact"     data-i18n="nav_cta">تواصل معنا</a></li>
       </ul>
     </div>
@@ -1342,7 +1357,7 @@ const t = {
     logo_ar:"مسارات الصدارة",
     nav_about:"من نحن", nav_services:"خدماتنا", nav_projects:"مشاريعنا", nav_why:"لماذا نحن", nav_cta:"تواصل معنا",
     hero_eyebrow:"الرياض، المملكة العربية السعودية",
-    hero_title:"نبني المستقبل بجودة لا تُنافس",
+    hero_title:"نحن على مسار النمو للوصول إلى الصدارة",
     hero_sub:"شركة مسارات الصدارة للمقاولات — خبرة متراكمة في تنفيذ المشاريع الإنشائية بمعايير عالمية وأعلى درجات الجودة والأمان.",
     hero_cta1:"استعرض مشاريعنا", hero_cta2:"تواصل معنا",
     stat1:"مشروع منجز", stat2:"سنوات خبرة", stat3:"رضا العملاء",
@@ -1350,7 +1365,7 @@ const t = {
     about_title:"شركة مقاولات تبني ثقتها بكل مشروع",
     about_desc:"تأسست شركة مسارات الصدارة للمقاولات عام 2022 في الرياض، وتخصصت في تنفيذ مشاريع البناء والتشييد بمعايير عالية الجودة. نجمع بين الكفاءة التقنية والالتزام بالمواعيد لتقديم نتائج تفوق توقعات عملائنا.",
     about_cta:"تعرف علينا أكثر",
-    num1:"سنة التأسيس", num2:"مكافآت وتكريمات", num3:"السعودية", num4:"مشاريع سنوياً",
+    num1:"سنة التأسيس", num2:"مكافآت وتكريمات", num3:"نطاق عملنا", num4:"مشاريع سنوياً",
     services_eyebrow:"خدماتنا", services_title:"ما نقدمه من خدمات",
     services_desc:"نقدم مجموعة متكاملة من خدمات المقاولات والبناء لتلبية احتياجات مشاريعكم بأعلى معايير الجودة.",
     s1_name:"المقاولات العامة", s1_desc:"تنفيذ مشاريع البناء والتشييد من الألف إلى الياء، مع الإشراف الكامل على جميع مراحل التنفيذ بمعايير عالية الجودة.",
@@ -1391,7 +1406,7 @@ const t = {
     logo_ar:"Masarat Al-Sadara",
     nav_about:"About Us", nav_services:"Services", nav_projects:"Projects", nav_why:"Why Us", nav_cta:"Contact Us",
     hero_eyebrow:"Riyadh, Kingdom of Saudi Arabia",
-    hero_title:"Building the Future with Unmatched Quality",
+    hero_title:"We Are on the Path to Excellence",
     hero_sub:"Masarat Al-Sadara Contracting Company — accumulated expertise in executing construction projects to international standards with the highest levels of quality and safety.",
     hero_cta1:"View Our Projects", hero_cta2:"Contact Us",
     stat1:"Projects Completed", stat2:"Years of Experience", stat3:"Client Satisfaction",
@@ -1399,7 +1414,7 @@ const t = {
     about_title:"A Contracting Company That Builds Trust With Every Project",
     about_desc:"Masarat Al-Sadara Contracting was founded in 2022 in Riyadh, specializing in construction and building projects to high quality standards. We combine technical excellence with on-time delivery to provide results that exceed our clients' expectations.",
     about_cta:"Learn More About Us",
-    num1:"Year Founded", num2:"Awards & Recognition", num3:"KSA", num4:"Projects Per Year",
+    num1:"Year Founded", num2:"Awards & Recognition", num3:"Service Area", num4:"Projects Per Year",
     services_eyebrow:"Our Services", services_title:"What We Offer",
     services_desc:"We provide a comprehensive range of contracting and construction services to meet your project needs with the highest quality standards.",
     s1_name:"General Contracting", s1_desc:"Full execution of construction projects from start to finish, with complete supervision of all implementation phases to the highest quality standards.",
@@ -1465,7 +1480,7 @@ function applyLang(l) {
 
   // KSA translation
   const ksaEl = document.getElementById('ksa-num');
-  if (ksaEl) ksaEl.textContent = l === 'ar' ? 'السعودية' : 'KSA';
+  if (ksaEl) ksaEl.textContent = l === 'ar' ? 'المملكة العربية السعودية' : 'Saudi Arabia';
 
   lang = l;
 }
@@ -1574,20 +1589,26 @@ window.addEventListener('scroll', () => {
       const dot = document.createElement('div');
       dot.className = 'ms-district-dot';
       dot.style.cssText = `left:${d.x}%;top:${d.y}%;width:${dotSize(d.count)}px;height:${dotSize(d.count)}px;background:${dotColor(d.count)};box-shadow:0 0 ${d.count>=5?10:5}px ${dotColor(d.count)};`;
-      dot.addEventListener('mouseenter', e => {
+      const showTip = (e) => {
         document.getElementById('ms-tt-name').textContent = d.name;
-        document.getElementById('ms-tt-count').textContent = d.count + ' مشاريع منجزة';
+        document.getElementById('ms-tt-count').textContent = d.count + (lang === 'ar' ? ' مشاريع منجزة' : ' projects');
         document.getElementById('ms-tt-type').textContent = d.type;
         const r = canvas.getBoundingClientRect();
-        const ex = (e.clientX - r.left) / r.width * 100;
-        const ey = (e.clientY - r.top) / r.height * 100;
+        const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+        const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+        const ex = (clientX - r.left) / r.width * 100;
+        const ey = (clientY - r.top) / r.height * 100;
         tooltip.style.left = ex > 60 ? 'auto' : (ex + 2) + '%';
         tooltip.style.right = ex > 60 ? (100 - ex + 2) + '%' : 'auto';
         tooltip.style.top = ey > 70 ? 'auto' : (ey + 2) + '%';
         tooltip.style.bottom = ey > 70 ? (100 - ey + 2) + '%' : 'auto';
         tooltip.classList.add('show');
-      });
+      };
+
+      dot.addEventListener('mouseenter', showTip);
+      dot.addEventListener('touchstart', (e) => { e.preventDefault(); showTip(e); }, { passive: false });
       dot.addEventListener('mouseleave', () => tooltip.classList.remove('show'));
+      dot.addEventListener('touchend', () => setTimeout(() => tooltip.classList.remove('show'), 1500));
       canvas.appendChild(dot);
 
       if (d.count >= 3) {
